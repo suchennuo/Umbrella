@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languages">
+        <item>c</item>
+        <item>c++</item>
+        <item>java </item>
+        <item>python</item>
+        <item>go</item>
+        <item>per</item>
+        <item>swift</item>
+        <item>php</item>
+        <item>xml</item>
+        <item>html</item>
+
+        <item>c</item>
+        <item>c++</item>
+        <item>java </item>
+        <item>python</item>
+        <item>go</item>
+        <item>per</item>
+        <item>swift</item>
+        <item>php</item>
+        <item>xml</item>
+        <item>html</item>
+
+        <item>c</item>
+        <item>c++</item>
+        <item>java </item>
+        <item>python</item>
+        <item>go</item>
+        <item>per</item>
+        <item>swift</item>
+        <item>php</item>
+        <item>xml</item>
+        <item>html</item>
+    </string-array>
+
+</resources>

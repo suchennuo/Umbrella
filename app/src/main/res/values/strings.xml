@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Sharedemo</string>
+    <string name="refresh">Loading...</string>
+    <string name="load_more">More...</string>
+    <string name="txt">"当添加头部和底部布局还有另外一个重载方法就是addHeaderView(headView, null, false) 和addFooterView(footerView, null, false)方法，
+这个方法与上面的方法区别在于：当给listView设置点击事件的时候，可以控制添加的布局是否可出发点击事件。区别是前一个方法可以控制header是否可
+ 以被selected，如果不想被selected则将第三个参数设置成false；
+
+下面以addFooterView()方法为例：
+addFooterView()方法必须放在listview.setadapter前面，给listview添加头部必须在绑定adapter前添加，否则会报错。
+原因是当我们在调用setAdapter方法时android会判断当前listview是否已经添加header，如果已经添加则会生成一个
+ 新的tempadapter，这个新的tempadapter包含我们设置的adapter所有内容以及listview的header和footer。所以当我
+
+们在给listview添加了header后在程序中调用listview.getadapter时返回的是tempadapter而不是我们通过setadapter
+
+传进去的adapter。如果没有设置adapter则tempadapter与我们自己的adapter是一样的。
+  listview.getadapter().getcount()方法返回值会比我们预期的要大，原因是添加了header。
+  我们自定义adapter里面的getitem方法里面返回的position是不包括header的，是我们自定义adapter中数据position编号从0开始，
+  也就是说与我们传进去的list的位置是一样的。
+  而Activity中listview的onitemclick方法：
+  public void onItemClick(AdapterView arg0, View arg1, int arg2,long arg3)
+  arg2是当前click的位置，这个位置是指在tempadapter中的位置，从0开始如果listview中添加了header则0代表header。
+  也就是说当我们在使用点击事件时，listView列中的位置为arg2-1
+
+  一般在开发中，为了达到我们想要的动态添加的效果主要的做法是：在listview.setadapter之前添加所需要的控件，然后使用removeFooterView()方法移除控件。"</string>
+</resources>
