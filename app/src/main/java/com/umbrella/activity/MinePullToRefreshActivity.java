@@ -14,7 +14,7 @@ import com.umbrella.sharedemo.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MinePullToRefreshActivity extends AppCompatActivity {
+public class MinePullToRefreshActivity extends AppBaseActivity {
 
     private SeparatingPullToRefreshListView pullToRefreshListView;
     private List<String> data;

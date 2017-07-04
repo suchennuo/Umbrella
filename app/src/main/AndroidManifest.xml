@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.umbrella.sharedemo">
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.umbrella.application.UmbrellaApplication"
+        android:name="com.umbrella.application.BaseUmbrellaApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,14 +21,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name="com.umbrella.service.TrainingService"
+            ></service>
+
         <activity
             android:name="com.umbrella.activity.CollapsingToolbarActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name="com.umbrella.activity.MinePullToRefreshActivity"/>
-        <activity android:name="com.umbrella.activity.IntroductionActivity"/>
-
-
+        <activity android:name="com.umbrella.activity.MinePullToRefreshActivity" />
+        <activity android:name="com.umbrella.activity.IntroductionActivity" />
+        <activity android:name="com.umbrella.activity.Flip3dActivity" />
+        <activity android:name="com.umbrella.activity.TrainingServiceActivity"></activity>
     </application>
-
 
 </manifest>

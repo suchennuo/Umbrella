@@ -20,6 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.umbrella.adapter.NormalListViewAdapter;
+import com.umbrella.application.UmbrellaApplication;
 import com.umbrella.sharedemo.R;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
@@ -34,7 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +78,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                startActivity(new Intent(MainActivity.this, CollapsingToolbarActivity.class));
-                startActivity(new Intent(MainActivity.this, IntroductionActivity.class));
+//                startActivity(new Intent(MainActivity.this, IntroductionActivity.class));
+//                startActivity(new Intent(MainActivity.this, Flip3dActivity.class));
+                startActivity(new Intent(MainActivity.this, TrainingServiceActivity.class));
             }
         });
 

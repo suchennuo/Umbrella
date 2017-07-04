@@ -1,9 +1,11 @@
 package com.umbrella.activity;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Environment;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,17 +25,21 @@ import android.widget.Toast;
 
 import com.floattingButton.FloatBall;
 import com.floattingButton.FloatBallMenu;
+import com.tencent.tinker.lib.tinker.Tinker;
+import com.tencent.tinker.lib.tinker.TinkerInstaller;
 import com.umbrella.customView.DropIndication;
 import com.umbrella.customView.FloatBubbleView;
 import com.umbrella.customView.FloatButtonManager;
 import com.umbrella.customView.PasswordView;
 import com.umbrella.sharedemo.R;
 
+import java.io.File;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class IntroductionActivity extends AppCompatActivity {
+public class IntroductionActivity extends AppBaseActivity {
 
     private static final  String TAG = "IntroductionActivity";
     @BindView(R.id.bt_click)
@@ -57,8 +63,9 @@ public class IntroductionActivity extends AppCompatActivity {
         addFloatButton();
 
         initPasswordView();
-    }
 
+
+    }
 
 
     private void initPasswordView(){
@@ -89,13 +96,19 @@ public class IntroductionActivity extends AppCompatActivity {
     long[] clicks = new long[n];
 
     @OnClick(R.id.bt_click)
-    public void btClick(View view){
-        System.arraycopy(clicks, 1, clicks, 0, clicks.length - 1);
-        clicks[clicks.length - 1] = SystemClock.uptimeMillis();
-        if (clicks[0] >= (SystemClock.uptimeMillis() - 2000)){
-            //Do something.
-            Log.d(TAG, "bt click");
-        }
+    public void checkClick(View view){
+//        System.arraycopy(clicks, 1, clicks, 0, clicks.length - 1);
+//        clicks[clicks.length - 1] = SystemClock.uptimeMillis();
+//        if (clicks[0] >= (SystemClock.uptimeMillis() - 2000)){
+//            //Do something.
+//            Log.d(TAG, "bt click");
+//        }
+        Toast.makeText(this, "tinker patch ?", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.bt_submit)
+    public void submit(View view){
+        loadPatch();
     }
 
 
@@ -158,5 +171,26 @@ public class IntroductionActivity extends AppCompatActivity {
     private void processOperation(int mask){
         btSubmit.setVisibility((mask & 0x1) == 0x1 ? View.VISIBLE : View.GONE);
         btClick.setVisibility((mask & 0x2) == 0x2 ? View.VISIBLE : View.GONE);
+    }
+
+
+    private void loadPatch(){
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk";
+        File file = new File(path);
+        if (file.exists()){
+            Toast.makeText(this, "Will load patch.", Toast.LENGTH_SHORT).show();
+            TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), path);
+        } else {
+            Toast.makeText(this, "There is no any patch.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void clearPatch(){
+        Tinker.with(getApplicationContext()).cleanPatch();
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk";
+        File file = new File(path);
+        if (file.exists()){
+            Toast.makeText(this, "Patch exist.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

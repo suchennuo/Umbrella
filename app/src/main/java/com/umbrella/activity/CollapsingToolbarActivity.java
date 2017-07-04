@@ -21,7 +21,7 @@ import com.umbrella.sharedemo.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CollapsingToolbarActivity extends AppCompatActivity {
+public class CollapsingToolbarActivity extends AppBaseActivity {
 
 
     private ListView listView;
