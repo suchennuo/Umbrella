@@ -19,6 +19,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.Training.ViewPageForScreenSlides.ScreenSlideActivity;
 import com.umbrella.adapter.NormalListViewAdapter;
 import com.umbrella.application.UmbrellaApplication;
 import com.umbrella.sharedemo.R;
@@ -80,7 +81,8 @@ public class MainActivity extends AppBaseActivity {
 //                startActivity(new Intent(MainActivity.this, CollapsingToolbarActivity.class));
 //                startActivity(new Intent(MainActivity.this, IntroductionActivity.class));
 //                startActivity(new Intent(MainActivity.this, Flip3dActivity.class));
-                startActivity(new Intent(MainActivity.this, TrainingServiceActivity.class));
+//                startActivity(new Intent(MainActivity.this, TrainingServiceActivity.class));
+                startActivity(new Intent(MainActivity.this, ScreenSlideActivity.class));
             }
         });
 

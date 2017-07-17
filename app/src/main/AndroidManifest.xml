@@ -22,8 +22,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.umbrella.service.TrainingService"
-            ></service>
+        <service android:name="com.umbrella.service.TrainingService" />
 
         <activity
             android:name="com.umbrella.activity.CollapsingToolbarActivity"
@@ -31,7 +30,8 @@
         <activity android:name="com.umbrella.activity.MinePullToRefreshActivity" />
         <activity android:name="com.umbrella.activity.IntroductionActivity" />
         <activity android:name="com.umbrella.activity.Flip3dActivity" />
-        <activity android:name="com.umbrella.activity.TrainingServiceActivity"></activity>
+        <activity android:name="com.umbrella.activity.TrainingServiceActivity" />
+        <activity android:name="com.Training.ViewPageForScreenSlides.ScreenSlideActivity"></activity>
     </application>
 
 </manifest>
