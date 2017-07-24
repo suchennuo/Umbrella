@@ -1,12 +1,52 @@
+
+#built application files
+*.apk
+*.ap_
+
+# Intellij project files
 *.iml
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
-/build
-/captures
+*.ipr
+*.iws
+.idea/
+.gradle/
+app/.gradle/
+
+.idea/libraries
+.idea/workspace.xml
+.idea/libraries
 .idea/vcs.xml
-/.idea/*
-app/
+.idea/scopes/scope_setting.xml
+.idea/moudles.xml
+.idea/misc.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/inspectionProfiles/profiles_setting.xml
+.idea/encodings.xml
+.idea/.name
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# OSX
+.DS_Store
+
+# Gradle files
+build/
+.gradle/
+*/build/
+
+# files for the dex VM
+*.dex
+
+# java class files
+*.class
+
+# Logfile
+*.log
+
+# generated files
+bin/
+gen/
+
+# others
+/captures
 .externalNativeBuild
